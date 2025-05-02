@@ -1,7 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { products } from "../data/products";
+import { useCart } from "../context/CartContext";
+import { useEffect } from "react";
 
 function ProductDetails() {
+  const { addToCart } = useCart();
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
 
@@ -29,9 +32,15 @@ function ProductDetails() {
       </p>
       <p className="text-red-600 font-medium mb-4">{stockStatus}</p>
       <Link to="/products" className="text-blue-500 hover:underline">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">
-        ← Back to Products
+        <button className="bg-gray-300 hover:bg-gray-500 text-black font-semibold py-2 px-4 rounded-xl shadow-lg transition duration-300 ease-in-out mr-4">
+        Back
         </button>
+        <button
+        onClick={() => addToCart(product)}
+        className="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-xl shadow-lg transition duration-300 ease-in-out"
+      >
+        Add to Cart
+      </button>
       </Link>
     </div>
   );

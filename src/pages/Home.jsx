@@ -5,7 +5,7 @@ function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-100">
       <h1 className="text-4xl font-bold mb-6 text-center">Welcome to Our Shop</h1>
       <img
-        src="https://via.placeholder.com/800x300"
+        src="../src/1.jpg" // Replace with your banner image path
         alt="Banner"
         className="w-full max-w-4xl rounded-lg shadow-md mb-6"
       />
