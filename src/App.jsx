@@ -1,53 +1,31 @@
-import React from 'react';
-import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
-import Home from '../pages/home';
-import Contact from '../pages/contact';
-import Shop from '../pages/Shop';
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
-const App = () => {
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Cart from "./pages/Cart";
+
+
+
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/shop" element={<Shop />} />
-      </Routes>
-    </Router>
-  
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:slug" element={<ProductDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </main>
+    </div>
   );
-};
+}
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import SuperCounter from './combine'
-
-// function App() {
-//   return (
-//     <div>
-//       <SuperCounter />
-//     </div>
-//   )
-// }
-
-// export default App
